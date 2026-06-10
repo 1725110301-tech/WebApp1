@@ -16,16 +16,16 @@ class Index:
 
 class Calculadora:
     def GET(self):
-        titulo = "Calculadora"
-        descripcion = "Una calculadora de dos numeros"
-        return render.calculadora(titulo, descripcion)
+        return render.calculadora()
+
     def POST(self):
-        formulario = web.input
-        numero1 = formulario['numero_1']
-        numero2 = formulario['numero_2']
-        suma = 
-        return numero1
-    
+        formulario = web.input()
+        numero1 = float(formulario.numero_1)
+        numero2 = float(formulario.numero_2)
+        resultado = numero1 + numero2
+        page = str(render.calculadora())
+        page = page.replace('id="resultado"', f'id="resultado" value="{resultado}"')
+        return page
 
 
 if __name__ == "__main__":
