@@ -1,23 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
 </head>
 <body>
-    <center><h1>calculadora</h1>
-    <img src="static/imagenes/calculadora.png" alt="imagen de calculadora" width="100" height="100">
-    <br>
+
+<center>
+
+    <h1>Calculadora</h1>
+
+    <img src="static/imagenes/calculadora.png"
+         alt="Calculadora"
+         width="100"
+         height="100">
+
+    <br><br>
+
     <form method="POST">
-        <label>Numero 1</label><br>
-        <input type="number" name="numero_1"><br>
-        <label>Numero 2</label><br>
-        <input type="number" name="numero_2"><br><br>
+
+        <label>Número 1</label><br>
+        <input type="number" step="any" name="numero_1"><br><br>
+
+        <label>Número 2</label><br>
+        <input type="number" step="any" name="numero_2"><br><br>
+
         <label>Resultado</label><br>
-        <input type="number" name="resultado" id="resultado"><br><br>
-        <button type="submit">Sumar</button>
+        <input type="text" id="resultado" readonly><br><br>
+        <button type="submit" name="operacion" value="sumar">+</button>
+        <button type="submit" name="operacion" value="restar">-</button>
+        <button type="submit" name="operacion" value="multiplicar">*</button>
+        <button type="submit" name="operacion" value="dividir">/</button>
+        <button type="submit" name="operacion" value="potencia">xʸ</button>
+        <button type="submit" name="operacion" value="modulo">%</button>
+        <button type="submit" name="operacion" value="raiz">√</button>
+        <button type="submit" name="operacion" value="limpiar">
+            Limpiar
+        </button>
     </form>
-    <a href="/">Inicio</a></center>
+
+    <br>
+
+    <a href="/">Inicio</a>
+
+</center>
+
 </body>
 </html>
