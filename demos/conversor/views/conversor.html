@@ -1,0 +1,24 @@
+$def with(temperatura, resultado)
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor</title>
+</head>
+<body>
+    <form method="POST">
+        <input type="number" name="temperatura" value=$temperatura>
+        <input type="number" name="resultado" value=$resultado>
+
+        <button name="operacion" value="a_fahrenheit">a Fahrenheit</button>
+        <button name="operacion" value="a_kelvin">a Kelvin</button>
+        <button name="operacion" value="a_celsius_f">a Celsius (desde F)</button>
+        <button name="operacion" value="a_celsius_k">a Celsius (desde K)</button>
+        <button name="operacion" value="limpiar">Limpiar</button>
+    </form>
+
+    <a href="/">Inicio</a>
+</body>
+</html>

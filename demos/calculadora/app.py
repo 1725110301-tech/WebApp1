@@ -8,13 +8,9 @@ urls = (
 
 app = web.application(urls, globals())
 render = web.template.render('calc')
-
-
 class Index:
     def GET(self):
         return render.index()
-
-
 class Calculadora:
     def GET(self):
         numero_1 = 0
