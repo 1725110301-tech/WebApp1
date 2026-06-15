@@ -17,60 +17,57 @@ class Index:
 
 class Calculadora:
     def GET(self):
-        return render.calculadora()
+        numero_1 = 0
+        numero_2 = 0
+        resultado = 0
+        return render.calculadora(numero_1, numero_2, resultado)
 
     def POST(self):
         formulario = web.input()
 
-        operacion = formulario.operacion
+        operacion = formulario['operacion']
 
         if operacion == "limpiar":
-            return render.calculadora()
+            return render.calculadora(0, 0, 0)
 
-        numero1 = float(formulario.numero_1)
-        numero2 = float(formulario.numero_2)
+        numero_1 = int(formulario['numero_1'])
+        numero_2 = int(formulario['numero_2'])
 
         if operacion == "sumar":
-            resultado = numero1 + numero2
+            resultado = numero_1 + numero_2
 
         elif operacion == "restar":
-            resultado = numero1 - numero2
+            resultado = numero_1 - numero_2
 
         elif operacion == "multiplicar":
-            resultado = numero1 * numero2
+            resultado = numero_1 * numero_2
 
         elif operacion == "dividir":
-            if numero2 != 0:
-                resultado = numero1 / numero2
+            if numero_2 != 0:
+                resultado = numero_1 / numero_2
             else:
                 resultado = "Error"
 
         elif operacion == "potencia":
-            resultado = numero1 ** numero2
+            resultado = numero_1 ** numero_2
 
         elif operacion == "modulo":
-            resultado = numero1 % numero2
+            if numero_2 != 0:
+                resultado = numero_1 % numero_2
+            else:
+                resultado = "Error"
 
         elif operacion == "raiz":
-            resultado = math.sqrt(numero1)
+            if numero_1 >= 0:
+                resultado = math.sqrt(numero_1)
+            else:
+                resultado = "Error"
 
-        page = str(render.calculadora())
-        page = page.replace(
-            'id="resultado"',
-            f'id="resultado" value="{resultado}"'
-        )
+        else:
+            resultado = 0
 
-        return page
+        return render.calculadora(numero_1, numero_2, resultado)
 
-
-        # TODO: programar la operación sumar
-        # TODO: programar la operación restar
-        # TODO: programar la operación dividir
-        # TODO: programar la operación multiplicar
-        # TODO: programar la operación raiz cuadrada al numero_1
-        # TODO: programar la operación potencia numero_1 ** numero_2
-        # TODO: programar la operación modulo
-        # TODO: programar la operación limpiar los valores
 
 if __name__ == "__main__":
     app.run()
